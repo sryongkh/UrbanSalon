@@ -2,8 +2,6 @@
 
 UrbanSalon is a modern, full-featured salon management platform designed to streamline operations for salons of all sizes. With robust backend services, a sleek frontend, real-time notifications, and secure payment integration, UrbanSalon delivers a seamless experience for both salon owners and customers.
 
----
-
 ## 🚀 Features
 
 - User authentication & authorization (Keycloak, JWT)
@@ -12,8 +10,6 @@ UrbanSalon is a modern, full-featured salon management platform designed to stre
 - Secure and reliable payment processing (Razorpay & Stripe)
 - Responsive, intuitive user interface
 - Containerized deployment for easy scalability
-
----
 
 ## 🛠️ Tech Stack
 
@@ -40,4 +36,7 @@ UrbanSalon is a modern, full-featured salon management platform designed to stre
 ### 💵 Payment Integration
 
 - **Razorpay & Stripe:** Secure and reliable payment gateways
+
+
+
 
