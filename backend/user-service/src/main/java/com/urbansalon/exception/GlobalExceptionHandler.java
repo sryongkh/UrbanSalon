@@ -13,8 +13,7 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionResponse> ExceptionHandler(Exception ex, WebRequest req) {
-        ExceptionResponse response = new ExceptionResponse(ex.getMessage(), req.getDescription(false),
-                LocalDateTime.now());
+        ExceptionResponse response = new ExceptionResponse(ex.getMessage(), "Error", LocalDateTime.now());
         return ResponseEntity.ok(response);
     }
 }

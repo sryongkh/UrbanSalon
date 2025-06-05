@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.urbansalon.modal.User;
 import com.urbansalon.repository.UserRepository;
+import com.urbansalon.exception.UserException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,19 +27,19 @@ public class UserController {
     }
 
     @GetMapping("/api/users/{id}")
-    public User getUserById(Long id) throws Exception {
+    public User getUserById(@PathVariable Long id) throws UserException {
         Optional<User> opt = userRepository.findById(id);
         if (opt.isPresent()) {
             return opt.get();
         }
-        throw new Exception("User not found");
+        throw new UserException("User not found with id: " + id);
     }
 
     @PutMapping("/api/users/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) throws Exception {
+    public User updateUser(@PathVariable Long id, @RequestBody User user) throws UserException {
         Optional<User> opt = userRepository.findById(id);
         if (opt.isEmpty()) {
-            throw new Exception("User not found with id: " + id);
+            throw new UserException("User not found with id: " + id);
         }
         User existingUser = opt.get();
         existingUser.setFullName(user.getFullName());
@@ -49,10 +50,10 @@ public class UserController {
     }
 
     @DeleteMapping("/api/users/{id}")
-    public String deleteUser(@PathVariable Long id) throws Exception {
+    public String deleteUser(@PathVariable Long id) throws UserException {
         Optional<User> opt = userRepository.findById(id);
         if (opt.isEmpty()) {
-            throw new Exception("User not found with id: " + id);
+            throw new UserException("User not found with id: " + id);
         }
         userRepository.deleteById(opt.get().getId());
         return "User deleted successfully";
