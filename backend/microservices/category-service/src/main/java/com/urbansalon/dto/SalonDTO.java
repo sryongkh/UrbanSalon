@@ -1,11 +1,15 @@
-package com.urbansalon.payload.dto;
+package com.urbansalon.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalTime;
 import java.util.List;
 
 @Data
+@Getter
+@Setter
 public class SalonDTO {
     private Long id;
 

@@ -16,6 +16,6 @@ public class Category {
 
     private String image;
 
-    private String salonId;
+    private Long salonId;
 
 }
